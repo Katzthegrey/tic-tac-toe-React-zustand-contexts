@@ -18,7 +18,7 @@ import {
 
 const Game = () => {
   const { currentPlayer, gameOver } = useGameStore();
-  const { playerXName, playerOName } = useGameSettingsStore();
+  const { playerXName, playerOName, setPlayerName } = useGameSettingsStore(); // Add setPlayerName
   const { scores } = usePlayerScoreStore();
   const { playGameStart } = useSound();
   const { handleSquareClick, handleReset } = useGameLogic();
@@ -31,6 +31,11 @@ const Game = () => {
     
     return () => clearTimeout(timer);
   }, [playGameStart]);
+  
+  // Handle name change from PlayerCard
+  const handleNameChange = (player, newName) => {
+    setPlayerName(player, newName);
+  };
   
   return (
     <GameContainer>
@@ -46,6 +51,7 @@ const Game = () => {
             position="left"
             timeLeft={currentPlayer === 'X' ? timeLeft : 10}
             isUrgent={currentPlayer === 'X' && isUrgent}
+            onNameChange={handleNameChange}  
           />
         </PlayerSection>
         
@@ -63,6 +69,7 @@ const Game = () => {
             position="right"
             timeLeft={currentPlayer === 'O' ? timeLeft : 10}
             isUrgent={currentPlayer === 'O' && isUrgent}
+            onNameChange={handleNameChange}  
           />
         </PlayerSection>
       </GameLayout>

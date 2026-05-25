@@ -12,10 +12,16 @@ const useGameSettingsStore = create((set) => ({
   setDifficulty: (difficulty) => set({ difficulty }),
   setPlayerNames: (xName, oName) => 
     set({ playerXName: xName, playerOName: oName }),
+  
+  
   setPlayerName: (player, name) =>
-    set((state) => ({
-      ...(player === 'X' ? { playerXName: name } : { playerOName: name }),
-    })),
+    set((state) => {
+      if (player === 'X') {
+        return { playerXName: name };
+      }
+      return { playerOName: name };
+    }),
+    
   startEditingName: (player) => 
     set({ isEditingName: true, editingPlayer: player }),
   stopEditingName: () => 

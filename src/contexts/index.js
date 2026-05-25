@@ -2,9 +2,13 @@ import React from 'react';
 import { ThemeContextProvider } from './ThemeContexts';
 import { SoundContextProvider } from './SoundContext';
 
-// Keep this file as the app Provider only. Import stores directly from
-// their files (e.g. ./gameStore) to avoid barrel circular dependency issues.
-
+export { ThemeContext } from './ThemeContexts';
+export { SoundContext, useSound } from './SoundContext';
+export { default as useGameStore } from './gameStore';
+export { default as useGameSettingsStore } from './gameSettingsStore';
+export { default as usePlayerScoreStore } from './playerScoreStore';
+export {default as useTimerStore} from './timerStore';
+export {default as useLeaderboardStore} from './leaderboardStore';
 const Provider = ({ children }) => {
   return (
     <ThemeContextProvider>
