@@ -44,7 +44,7 @@ const GameStatus = ({ onReset }) => {
         setTimeout(() => setShowModal(true), 500);
       }
     }
-  }, [gameOver, winner, isDraw]);
+  }, [gameOver, winner, isDraw, playWin, playDraw, incrementScore, incrementDraws]);
   
   const handlePlayAgain = () => {
     setShowModal(false);

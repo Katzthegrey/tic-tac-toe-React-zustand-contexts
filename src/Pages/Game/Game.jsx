@@ -17,7 +17,7 @@ import {
 } from './Game.styled';
 
 const Game = () => {
-  const { currentPlayer, winner, isDraw, gameOver } = useGameStore();
+  const { currentPlayer, gameOver } = useGameStore();
   const { playerXName, playerOName } = useGameSettingsStore();
   const { scores } = usePlayerScoreStore();
   const { playGameStart } = useSound();

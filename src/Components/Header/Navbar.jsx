@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import { ThemeContext } from '../../contexts/ThemeContexts';
 import { useSound } from '../../contexts/SoundContext';
 import { 
